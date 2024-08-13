@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
-import { ragChat } from '@/lib/rag-chat';
 import { aiUseChatAdapter } from '@upstash/rag-chat/nextjs';
+import { ragChat } from '@/lib/rag-chat';
 
 export async function POST(req: Request) {
  const { messages, sessionId } = await req.json();
@@ -12,4 +12,5 @@ export async function POST(req: Request) {
   console.log("response",res);
 
   return aiUseChatAdapter(res);
+
 }
